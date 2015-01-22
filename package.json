@@ -13,5 +13,8 @@
 		"validate",
 		"editorconfig"
 	],
-	"license": "BSD-2-Clause"
+	"license": "BSD-2-Clause",
+	"devDependencies": {
+		"grunt": "^0.4.5"
+	}
 }
