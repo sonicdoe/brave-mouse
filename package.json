@@ -1,0 +1,17 @@
+{
+	"name": "brave-mouse",
+	"version": "0.1.0",
+	"author": "Jakob Krigovsky <jakob.krigovsky@gmail.com>",
+	"description": "Validate your code against your EditorConfig.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SonicHedgehog/brave-mouse.git"
+	},
+	"keywords": [
+		"lint",
+		"hint",
+		"validate",
+		"editorconfig"
+	],
+	"license": "BSD-2-Clause"
+}
