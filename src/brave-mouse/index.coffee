@@ -1,0 +1,1 @@
+braveMouse = module.exports = {}
