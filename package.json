@@ -18,6 +18,11 @@
 	"scripts": {
 		"prepublish": "grunt build"
 	},
+	"files": [
+		"lib",
+		"CHANGELOG.md",
+		"LICENSE"
+	],
 	"dependencies": {
 		"detect-indent": "^3.0.0",
 		"editorconfig": "^0.12.1"
