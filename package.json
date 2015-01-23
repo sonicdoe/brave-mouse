@@ -1,0 +1,35 @@
+{
+	"name": "brave-mouse",
+	"version": "0.1.0",
+	"author": "Jakob Krigovsky <jakob.krigovsky@gmail.com>",
+	"description": "Validate your code against your EditorConfig.",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SonicHedgehog/brave-mouse.git"
+	},
+	"keywords": [
+		"lint",
+		"hint",
+		"validate",
+		"editorconfig"
+	],
+	"license": "BSD-2-Clause",
+	"main": "lib/brave-mouse",
+	"scripts": {
+		"prepublish": "grunt build"
+	},
+	"files": [
+		"lib",
+		"CHANGELOG.md",
+		"LICENSE"
+	],
+	"dependencies": {
+		"detect-indent": "^3.0.0",
+		"editorconfig": "^0.12.1"
+	},
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-clean": "^0.6.0",
+		"grunt-contrib-coffee": "^0.12.0"
+	}
+}
