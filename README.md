@@ -1,5 +1,7 @@
 # brave-mouse
 
+[![Node.js package](http://img.shields.io/npm/v/brave-mouse.svg)](https://www.npmjs.org/package/brave-mouse)
+
 Validate your code against your EditorConfig.
 
 ## Getting started
