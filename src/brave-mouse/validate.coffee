@@ -6,7 +6,7 @@ detectIndent = require 'detect-indent'
 module.exports = (filePath, callback) ->
 	editorconfig.parse(filePath)
 	.then (editorconfigProperties) ->
-		result = {}
+		results = {}
 
 		fs.readFile filePath, 'utf8', (err, fileContents) ->
 			return callback err if err
@@ -15,12 +15,12 @@ module.exports = (filePath, callback) ->
 				indentStyle = detectIndent(fileContents).type
 
 				if indentStyle isnt editorconfigProperties.indent_style and indentStyle
-					result.indent_style =
+					results.indent_style =
 						expected: editorconfigProperties.indent_style
 						is: indentStyle
 
-			result = true if Object.keys(result).length is 0
+			results = true if Object.keys(results).length is 0
 
-			callback null, result
+			callback null, results
 	.catch (err) ->
 		return callback err
