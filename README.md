@@ -33,6 +33,14 @@ braveMouse.validate('your-file.js', function(err, result) {
 })
 ```
 
+## Supported EditorConfig properties
+
+See [EditorConfig’s wiki](https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties) for a complete list of properties.
+
+brave-mouse currently supports validating the following properties:
+
+- `indent_style`
+
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
