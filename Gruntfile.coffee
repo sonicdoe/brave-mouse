@@ -14,6 +14,7 @@ module.exports = (grunt) ->
 		mochacli:
 			options:
 				compilers: ['coffee:coffee-script/register']
+				require: ['test/support/common']
 			files: ['test/brave-mouse']
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
