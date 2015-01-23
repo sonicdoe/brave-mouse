@@ -16,6 +16,7 @@
 	"license": "BSD-2-Clause",
 	"main": "lib/brave-mouse",
 	"dependencies": {
+		"detect-indent": "^3.0.0",
 		"editorconfig": "^0.12.1"
 	},
 	"devDependencies": {
