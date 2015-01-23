@@ -13,7 +13,7 @@ module.exports = (filePath, callback) ->
 
 			indentStyle = detectIndent(fileContents).type
 
-			if indentStyle isnt editorconfigProperties.indent_style or !indentStyle
+			if indentStyle isnt editorconfigProperties.indent_style and indentStyle
 				result.indent_style =
 					expected: editorconfigProperties.indent_style
 					is: indentStyle
