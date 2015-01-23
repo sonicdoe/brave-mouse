@@ -1,6 +1,7 @@
 # brave-mouse
 
 [![Node.js package](http://img.shields.io/npm/v/brave-mouse.svg)](https://www.npmjs.com/package/brave-mouse)
+[![Linux Build Status](http://img.shields.io/travis/SonicHedgehog/brave-mouse/develop.svg)](https://travis-ci.org/SonicHedgehog/brave-mouse)
 
 Validate your code against your EditorConfig.
 
