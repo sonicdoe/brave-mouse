@@ -1,5 +1,7 @@
 module.exports = (grunt) ->
 	grunt.initConfig
+		clean:
+			package: ['lib']
 		coffee:
 			options:
 				bare: true
@@ -10,6 +12,7 @@ module.exports = (grunt) ->
 				dest: 'lib'
 				ext: '.js'
 
+	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 
 	grunt.registerTask 'default', []
