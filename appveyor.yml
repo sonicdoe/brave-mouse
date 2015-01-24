@@ -1,0 +1,31 @@
+build: off
+shallow_clone: true
+version: "{build}"
+
+init:
+  - git config --global core.autocrlf input
+
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - SET PATH=%APPDATA%\npm;%PATH%
+  - npm install -g npm
+  - npm install -g grunt-cli
+  - npm install
+
+test_script:
+  - node --version
+  - npm --version
+  - cmd: grunt test
+
+environment:
+  matrix:
+    - nodejs_version: "0.11"
+    - nodejs_version: "0.10"
+    - nodejs_version: "0.8"
+    - nodejs_version: "1.0" # io.js v1.0
+
+matrix:
+  allow_failures:
+    - nodejs_version: "0.11"
+    - nodejs_version: "1.0"
+  fast_finish: true
