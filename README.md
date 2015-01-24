@@ -44,6 +44,7 @@ See [EditorConfig’s wiki](https://github.com/editorconfig/editorconfig/wiki/Ed
 brave-mouse currently supports validating the following properties:
 
 - `indent_style`
+- `indent_size`
 
 ## Release History
 
