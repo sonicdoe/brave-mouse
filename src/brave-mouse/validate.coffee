@@ -2,6 +2,7 @@ fs = require 'fs'
 
 editorconfig = require 'editorconfig'
 detectIndent = require 'detect-indent'
+detectNewline = require 'detect-newline'
 
 module.exports = (filePath, callback) ->
 	editorconfig.parse(filePath)
@@ -28,6 +29,18 @@ module.exports = (filePath, callback) ->
 					results.indent_size =
 						expected: editorconfigProperties.indent_size
 						is: indentation.amount
+
+			if editorconfigProperties.end_of_line
+				newline = detectNewline fileContents
+
+				newline = 'lf' if newline is '\n'
+				newline = 'crlf' if newline is '\r\n'
+
+				if newline isnt editorconfigProperties.end_of_line and
+				newline
+					results.end_of_line =
+						expected: editorconfigProperties.end_of_line
+						is: newline
 
 			results = true if Object.keys(results).length is 0
 
