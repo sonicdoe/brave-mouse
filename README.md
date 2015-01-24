@@ -61,7 +61,7 @@ $ npm install
 
 Then run the tests:
 
-```
+```shell
 $ grunt test
 ```
 
