@@ -1,1 +1,2 @@
-../indent_style/tabs.txt
+	white
+	walter
