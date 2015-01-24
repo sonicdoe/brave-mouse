@@ -48,6 +48,21 @@ brave-mouse currently supports validating the following properties:
 
 `tab_width` can’t be validated as it only applies to editors.
 
+## Running tests
+
+First, install all dependencies:
+
+```shell
+$ npm install -g grunt-cli
+$ npm install
+```
+
+Then run the tests:
+
+```
+$ grunt test
+```
+
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
