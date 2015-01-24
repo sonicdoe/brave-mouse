@@ -257,3 +257,67 @@ describe 'brave-mouse (programmatically)', ->
 						results.should.be.true
 
 						done()
+
+			describe 'trim_trailing_whitespace', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if file has a trailing space but no trailing whitespace is expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', true, 'trim_trailing_whitespace/space.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.trim_trailing_whitespace.should.deep.equal
+							expected: true
+							is: false
+
+						done()
+
+				it 'should validate if file has a trailing tab but no trailing whitespace is expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', true, 'trim_trailing_whitespace/tab.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.trim_trailing_whitespace.should.deep.equal
+							expected: true
+							is: false
+
+						done()
+
+				it 'should validate if file has no trailing whitespace and none is expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', true, 'trim_trailing_whitespace/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file has a trailing space and trailing whitespace is to be expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', false, 'trim_trailing_whitespace/space.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file has a trailing tab and trailing whitespace is to be expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', false, 'trim_trailing_whitespace/tab.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file has no trailing whitespace but trailing whitespace is to be expected', (done) ->
+					prepareFs 'trim_trailing_whitespace', false, 'trim_trailing_whitespace/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'trim_trailing_whitespace/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
