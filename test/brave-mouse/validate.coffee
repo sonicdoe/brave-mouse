@@ -73,3 +73,123 @@ describe 'brave-mouse (programmatically)', ->
 						results.should.be.true
 
 						done()
+
+			describe 'indent_size', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if file uses tabs but 2 spaces are expected', (done) ->
+					prepareFs 'indent_size', 2, 'indent_size/tabs.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 2
+							is: 'tab'
+
+						done()
+
+				it 'should validate if file uses tabs but 4 spaces are expected', (done) ->
+					prepareFs 'indent_size', 4, 'indent_size/tabs.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 4
+							is: 'tab'
+
+						done()
+
+				it 'should validate if file uses tabs and tabs are expected', (done) ->
+					prepareFs 'indent_size', 'tab', 'indent_size/tabs.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses 2 spaces but tabs are expected', (done) ->
+					prepareFs 'indent_size', 'tab', 'indent_size/2-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 'tab'
+							is: 2
+
+						done()
+
+				it 'should validate if file uses 2 spaces and 2 spaces are expected', (done) ->
+					prepareFs 'indent_size', 2, 'indent_size/2-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses 2 spaces but 4 spaces are expected', (done) ->
+					prepareFs 'indent_size', 4, 'indent_size/2-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 4
+							is: 2
+
+						done()
+
+				it 'should validate if file uses 4 spaces but tabs are expected', (done) ->
+					prepareFs 'indent_size', 'tab', 'indent_size/4-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 'tab'
+							is: 4
+
+						done()
+
+				it 'should validate if file uses 4 spaces but 2 spaces are expected', (done) ->
+					prepareFs 'indent_size', 2, 'indent_size/4-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.indent_size.should.deep.equal
+							expected: 2
+							is: 4
+
+						done()
+
+				it 'should validate if file uses 4 spaces and 4 spaces are expected', (done) ->
+					prepareFs 'indent_size', 4, 'indent_size/4-spaces.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses no indentation and tabs are expected', (done) ->
+					prepareFs 'indent_size', 'tab', 'indent_size/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses no indentation and 2 spaces are expected', (done) ->
+					prepareFs 'indent_size', 2, 'indent_size/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses no indentation and 4 spaces are expected', (done) ->
+					prepareFs 'indent_size', 4, 'indent_size/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'indent_size/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
