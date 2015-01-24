@@ -26,6 +26,7 @@
 	],
 	"dependencies": {
 		"detect-indent": "^3.0.0",
+		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
 		"editorconfig": "^0.12.1"
 	},
 	"devDependencies": {
