@@ -11,13 +11,23 @@ module.exports = (filePath, callback) ->
 		fs.readFile filePath, 'utf8', (err, fileContents) ->
 			return callback err if err
 
-			if editorconfigProperties.indent_style
-				indentStyle = detectIndent(fileContents).type
+			if editorconfigProperties.indent_style or editorconfigProperties.indent_size
+				indentation = detectIndent fileContents
+				indentation.amount = 'tab' if indentation.type is 'tab'
 
-				if indentStyle isnt editorconfigProperties.indent_style and indentStyle
+				if editorconfigProperties.indent_style and
+				indentation.type isnt editorconfigProperties.indent_style and
+				indentation.type
 					results.indent_style =
 						expected: editorconfigProperties.indent_style
-						is: indentStyle
+						is: indentation.type
+
+				if editorconfigProperties.indent_size and
+				indentation.amount isnt editorconfigProperties.indent_size and
+				indentation.type
+					results.indent_size =
+						expected: editorconfigProperties.indent_size
+						is: indentation.amount
 
 			results = true if Object.keys(results).length is 0
 
