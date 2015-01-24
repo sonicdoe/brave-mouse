@@ -27,5 +27,5 @@ environment:
 matrix:
   allow_failures:
     - nodejs_version: "0.11"
-    - nodejs_versioN: "1.0"
+    - nodejs_version: "1.0"
   fast_finish: true
