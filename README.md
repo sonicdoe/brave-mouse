@@ -46,6 +46,8 @@ brave-mouse currently supports validating the following properties:
 - `indent_style`
 - `indent_size`
 
+`tab_width` can’t be validated as it only applies to editors.
+
 ## Release History
 
 See [CHANGELOG.md](./CHANGELOG.md).
