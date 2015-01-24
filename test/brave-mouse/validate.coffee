@@ -193,3 +193,67 @@ describe 'brave-mouse (programmatically)', ->
 						results.should.be.true
 
 						done()
+
+			describe 'end_of_line', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if file uses LF but CRLF is expected', (done) ->
+					prepareFs 'end_of_line', 'crlf', 'end_of_line/lf.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.end_of_line.should.deep.equal
+							expected: 'crlf'
+							is: 'lf'
+
+						done()
+
+				it 'should validate if file uses LF and LF is expected', (done) ->
+					prepareFs 'end_of_line', 'lf', 'end_of_line/lf.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses CRLF but LF is expected', (done) ->
+					prepareFs 'end_of_line', 'lf', 'end_of_line/crlf.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.end_of_line.should.deep.equal
+							expected: 'lf'
+							is: 'crlf'
+
+						done()
+
+				it 'should validate if file uses CRLF and CRLF is expected', (done) ->
+					prepareFs 'end_of_line', 'crlf', 'end_of_line/crlf.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses no newline character and LF is expected', (done) ->
+					prepareFs 'end_of_line', 'lf', 'end_of_line/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file uses no newline character and CRLF is expected', (done) ->
+					prepareFs 'end_of_line', 'crlf', 'end_of_line/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'end_of_line/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
