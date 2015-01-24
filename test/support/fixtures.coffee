@@ -11,3 +11,6 @@ global.fixtures =
 	'indent_size/2-spaces.txt': readFixture 'indent_size/2-spaces.txt'
 	'indent_size/4-spaces.txt': readFixture 'indent_size/4-spaces.txt'
 	'indent_size/none.txt': readFixture 'indent_size/none.txt'
+	'end_of_line/lf.txt': readFixture 'end_of_line/lf.txt'
+	'end_of_line/crlf.txt': readFixture 'end_of_line/crlf.txt'
+	'end_of_line/none.txt': readFixture 'end_of_line/none.txt'
