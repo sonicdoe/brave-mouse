@@ -7,3 +7,7 @@ global.fixtures =
 	'indent_style/tabs.txt': readFixture 'indent_style/tabs.txt'
 	'indent_style/spaces.txt': readFixture 'indent_style/spaces.txt'
 	'indent_style/none.txt': readFixture 'indent_style/none.txt'
+	'indent_size/tabs.txt': readFixture 'indent_size/tabs.txt'
+	'indent_size/2-spaces.txt': readFixture 'indent_size/2-spaces.txt'
+	'indent_size/4-spaces.txt': readFixture 'indent_size/4-spaces.txt'
+	'indent_size/none.txt': readFixture 'indent_size/none.txt'
