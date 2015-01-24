@@ -14,3 +14,6 @@ global.fixtures =
 	'end_of_line/lf.txt': readFixture 'end_of_line/lf.txt'
 	'end_of_line/crlf.txt': readFixture 'end_of_line/crlf.txt'
 	'end_of_line/none.txt': readFixture 'end_of_line/none.txt'
+	'trim_trailing_whitespace/space.txt': readFixture 'trim_trailing_whitespace/space.txt'
+	'trim_trailing_whitespace/tab.txt': readFixture 'trim_trailing_whitespace/tab.txt'
+	'trim_trailing_whitespace/none.txt': readFixture 'trim_trailing_whitespace/none.txt'
