@@ -6,7 +6,31 @@
 
 Validate your code against your EditorConfig.
 
-## Getting started
+## Command line interface
+
+Install brave-mousing using:
+
+```shell
+$ npm install brave-mouse -g
+```
+
+Validate files like this:
+
+```shell
+$ brave-mouse .travis.yml README.md package.json
+```
+
+brave-mouse automatically uses the appropiate `.editorconfig`.
+
+### Exit codes
+
+brave-mouse will exit abruptly (i.e. subsequent files won’t be processed) with an exit code of `1` if it encounters an error such as being unable to read a file.
+
+brave-mouse will exit with an exit code of `2` if all files could be processed but not all files are valid according to your `.editorconfig`.
+
+If all files could be processed successfully and are valid, brave-mouse exits with an exit code of `0`.
+
+## Programmatic usage
 
 Install brave-mouse using:
 
