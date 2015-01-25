@@ -15,6 +15,7 @@
 	],
 	"license": "BSD-2-Clause",
 	"main": "lib/brave-mouse",
+	"bin": "bin/brave-mouse",
 	"scripts": {
 		"test": "grunt test",
 		"prepublish": "grunt build"
