@@ -17,7 +17,7 @@ $ npm install brave-mouse --save
 Use it like this:
 
 ```js
-var braveMouse = require('brave-mouse')
+var braveMouse = require('brave-mouse');
 
 braveMouse.validate('your-file.js', function(err, results) {
   // `err` will only be set for actual errors, e.g. it will
@@ -26,7 +26,7 @@ braveMouse.validate('your-file.js', function(err, results) {
   if(results === true) {
     // Your file is valid
   } else {
-    console.log(results)
+    console.log(results);
     // {
     //   "indent_style": {
     //     "expected": "tab"
@@ -34,7 +34,7 @@ braveMouse.validate('your-file.js', function(err, results) {
     //   }
     // }
   }
-})
+});
 ```
 
 ## Supported EditorConfig properties
