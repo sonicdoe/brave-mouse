@@ -24,6 +24,10 @@
 		"CHANGELOG.md",
 		"LICENSE"
 	],
+	"engines": {
+		"node": ">=0.8.0",
+		"npm": ">=1.3.7"
+	},
 	"dependencies": {
 		"detect-indent": "^3.0.0",
 		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
