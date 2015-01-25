@@ -15,7 +15,7 @@ module.exports = (grunt) ->
 			options:
 				compilers: ['coffee:coffee-script/register']
 				require: ['test/support/common', 'test/support/fixtures']
-			files: ['test/brave-mouse']
+			files: ['test/brave-mouse', 'test/cli']
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
