@@ -7,6 +7,10 @@ module.exports = (argv) ->
 	opts = parser
 	.script 'brave-mouse'
 	.options
+		help:
+			abbr: 'h'
+			flag: true
+			help: 'Print this help message'
 		version:
 			abbr: 'v'
 			flag: true
