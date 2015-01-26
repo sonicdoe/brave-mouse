@@ -16,7 +16,11 @@ module.exports = (grunt) ->
 				compilers: ['coffee:coffee-script/register']
 				require: ['test/support/common', 'test/support/fixtures']
 			lib: ['test/brave-mouse']
-			cli: ['test/cli']
+			cli:
+				options:
+					slow: 750
+					timeout: 4000
+					files: ['test/cli']
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
