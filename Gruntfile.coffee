@@ -15,7 +15,8 @@ module.exports = (grunt) ->
 			options:
 				compilers: ['coffee:coffee-script/register']
 				require: ['test/support/common', 'test/support/fixtures']
-			files: ['test/brave-mouse', 'test/cli']
+			lib: ['test/brave-mouse']
+			cli: ['test/cli']
 
 	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -23,4 +24,6 @@ module.exports = (grunt) ->
 
 	grunt.registerTask 'build', ['clean:package', 'coffee']
 	grunt.registerTask 'test', ['build', 'mochacli']
+	grunt.registerTask 'test:lib', ['build', 'mochacli:lib']
+	grunt.registerTask 'test:cli', ['build', 'mochacli:cli']
 	grunt.registerTask 'default', []
