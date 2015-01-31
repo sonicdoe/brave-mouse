@@ -1,6 +1,6 @@
 {
 	"name": "brave-mouse",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"author": "Jakob Krigovsky <jakob.krigovsky@gmail.com>",
 	"description": "Validate your code against your EditorConfig.",
 	"repository": {
@@ -15,6 +15,7 @@
 	],
 	"license": "BSD-2-Clause",
 	"main": "lib/brave-mouse",
+	"bin": "bin/brave-mouse",
 	"scripts": {
 		"test": "grunt test",
 		"prepublish": "grunt build"
@@ -24,10 +25,18 @@
 		"CHANGELOG.md",
 		"LICENSE"
 	],
+	"engines": {
+		"node": ">=0.8.0",
+		"npm": ">=1.3.7"
+	},
 	"dependencies": {
+		"async": "^0.9.0",
 		"detect-indent": "^3.0.0",
 		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
-		"editorconfig": "^0.12.1"
+		"detect-trailing-whitespace": "^0.1.0",
+		"editorconfig": "^0.12.1",
+		"exit": "^0.1.2",
+		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
 	},
 	"devDependencies": {
 		"chai": "^1.10.0",

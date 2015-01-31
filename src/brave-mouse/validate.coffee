@@ -3,6 +3,7 @@ fs = require 'fs'
 editorconfig = require 'editorconfig'
 detectIndent = require 'detect-indent'
 detectNewline = require 'detect-newline'
+detectTrailingWhitespace = require 'detect-trailing-whitespace'
 
 module.exports = (filePath, callback) ->
 	editorconfig.parse(filePath)
@@ -41,6 +42,14 @@ module.exports = (filePath, callback) ->
 					results.end_of_line =
 						expected: editorconfigProperties.end_of_line
 						is: newline
+
+			if editorconfigProperties.trim_trailing_whitespace
+				hasTrailingWhitespace = detectTrailingWhitespace fileContents
+
+				if hasTrailingWhitespace isnt !editorconfigProperties.trim_trailing_whitespace
+					results.trim_trailing_whitespace =
+						expected: editorconfigProperties.trim_trailing_whitespace
+						is: !hasTrailingWhitespace
 
 			results = true if Object.keys(results).length is 0
 

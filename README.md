@@ -6,27 +6,52 @@
 
 Validate your code against your EditorConfig.
 
-## Getting started
+## Command line interface
+
+Install brave-mousing using:
+
+```shell
+$ npm install brave-mouse -g
+```
+
+Validate files like this:
+
+```shell
+$ brave-mouse .travis.yml README.md package.json
+```
+
+brave-mouse automatically uses the appropiate `.editorconfig`.
+
+### Exit codes
+
+brave-mouse will exit abruptly (i.e. subsequent files won’t be processed) with an exit code of `1` if it encounters an error such as being unable to read a file.
+
+brave-mouse will exit with an exit code of `2` if all files could be processed but not all files are valid according to your `.editorconfig`.
+
+If all files could be processed successfully and are valid, brave-mouse exits with an exit code of `0`.
+
+## Programmatic usage
 
 Install brave-mouse using:
 
 ```shell
-$ npm install brave-mouse --save
+$ npm install brave-mouse
 ```
 
 Use it like this:
 
 ```js
-var braveMouse = require('brave-mouse')
+var braveMouse = require('brave-mouse');
 
 braveMouse.validate('your-file.js', function(err, results) {
   // `err` will only be set for actual errors, e.g. it will
   // not be set if your file isn’t valid.
+  if(err) throw err;
   
   if(results === true) {
     // Your file is valid
   } else {
-    console.log(results)
+    console.log(results);
     // {
     //   "indent_style": {
     //     "expected": "tab"
@@ -34,7 +59,7 @@ braveMouse.validate('your-file.js', function(err, results) {
     //   }
     // }
   }
-})
+});
 ```
 
 ## Supported EditorConfig properties
@@ -46,6 +71,7 @@ brave-mouse currently supports validating the following properties:
 - `indent_style`
 - `indent_size`
 - `end_of_line` (only `lf` and `crlf` are supported)
+- `trim_trailing_whitespace`
 
 `tab_width` can’t be validated as it only applies to editors.
 
@@ -60,7 +86,7 @@ $ npm install
 
 Then run the tests:
 
-```
+```shell
 $ grunt test
 ```
 
