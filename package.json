@@ -35,7 +35,8 @@
 		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
 		"detect-trailing-whitespace": "^0.1.0",
 		"editorconfig": "^0.12.1",
-		"nomnom": "^1.8.1"
+		"exit": "^0.1.2",
+		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
 	},
 	"devDependencies": {
 		"chai": "^1.10.0",
