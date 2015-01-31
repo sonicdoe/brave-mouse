@@ -1,7 +1,11 @@
 fs = require 'fs'
+path = require 'path'
 
 readFixture = (fixture) ->
 	fs.readFileSync "#{__dirname}/../fixtures/#{fixture}", 'utf8'
+
+resolveFixture = (fixture) ->
+	path.resolve "#{__dirname}/../fixtures/#{fixture}"
 
 global.fixtures =
 	'indent_style/tabs.txt': readFixture 'indent_style/tabs.txt'
@@ -17,3 +21,8 @@ global.fixtures =
 	'trim_trailing_whitespace/space.txt': readFixture 'trim_trailing_whitespace/space.txt'
 	'trim_trailing_whitespace/tab.txt': readFixture 'trim_trailing_whitespace/tab.txt'
 	'trim_trailing_whitespace/none.txt': readFixture 'trim_trailing_whitespace/none.txt'
+
+global.fixtures.cli =
+	'validate-valid-file': resolveFixture 'cli/validate-valid-file'
+	'validate-invalid-file': resolveFixture 'cli/validate-invalid-file'
+	'validate-multiple-files': resolveFixture 'cli/validate-multiple-files'
