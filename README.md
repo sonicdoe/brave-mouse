@@ -22,6 +22,7 @@ var braveMouse = require('brave-mouse');
 braveMouse.validate('your-file.js', function(err, results) {
   // `err` will only be set for actual errors, e.g. it will
   // not be set if your file isn’t valid.
+  if(err) throw err;
   
   if(results === true) {
     // Your file is valid
