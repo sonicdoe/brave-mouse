@@ -2,6 +2,11 @@
 
 All releases and their notable changes will be documented in this file. This project follows [Semantic Versioning 2.0.0](http://semver.org).
 
+## v0.3.0 (2015-31)
+
+- Add support for `trim_trailing_whitespace`.
+- Add command line interface.
+
 ## v0.2.0 (2015-01-24)
 
 - Fix incorrect `indent_style` result if file contains no indentations.
