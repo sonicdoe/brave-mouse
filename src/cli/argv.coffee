@@ -52,6 +52,12 @@ module.exports = (argv) ->
 		, (err) ->
 			if err
 				console.error err
-				process.exit 1
+				exit 1
 			else
-				process.exit exitCode
+				exit exitCode
+
+exit = (code = 0) ->
+	if process.platform is 'win32'
+		require('exit') code
+	else
+		process.exit code
