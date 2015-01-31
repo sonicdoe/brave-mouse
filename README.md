@@ -11,7 +11,7 @@ Validate your code against your EditorConfig.
 Install brave-mouse using:
 
 ```shell
-$ npm install brave-mouse --save
+$ npm install brave-mouse
 ```
 
 Use it like this:
