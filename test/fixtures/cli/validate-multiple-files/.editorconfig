@@ -1,0 +1,6 @@
+[{a,b}.txt]
+indent_style = tab
+
+[{c,d,e}.txt]
+indent_style = space
+indent_size = 2
