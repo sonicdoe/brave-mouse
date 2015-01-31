@@ -22,6 +22,11 @@ module.exports = (argv) ->
 			help: 'Print brave-mouse’s version'
 	.parse argv.slice 2
 
+	# Even though nomnom calls process.exit(), execution may continue because
+	# exit waits for stdio to drain. See https://github.com/joyent/node/issues/3584.
+	if process.argv.indexOf('-h') isnt -1 or process.argv.indexOf('--help') isnt -1
+		return
+
 	if opts.version
 		return console.log 'v' + braveMousePackageJson.version
 
