@@ -11,4 +11,4 @@ global.exec = (args, options, callback) ->
 
 	binPath = path.join __dirname, '..', '..', 'bin', 'brave-mouse'
 
-	childProcess.exec "#{binPath} #{args.join(' ')}", options, callback
+	childProcess.exec "node #{binPath} #{args.join(' ')}", options, callback
