@@ -258,6 +258,158 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
+			describe 'charset', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if file is latin1 and latin1 is expected', (done) ->
+					prepareFs 'charset', 'latin1', 'charset/latin1.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is latin1 but utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/latin1.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'utf-8'
+							is: 'latin1'
+
+						done()
+
+				it 'should validate if file is ambiguous latin1 and latin1 is expected', (done) ->
+					prepareFs 'charset', 'latin1', 'charset/latin1-ambiguous.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is ambiguous latin1 and utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/latin1-ambiguous.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-8 and utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/utf-8.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-8 but latin1 is expected', (done) ->
+					prepareFs 'charset', 'latin1', 'charset/utf-8.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'latin1'
+							is: 'utf-8'
+
+						done()
+
+				it 'should validate if file is ambiguous utf-8 and utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/utf-8-ambiguous.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is ambiguous utf-8 but latin1 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/utf-8-ambiguous.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-8 for sure and utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/utf-8-for-sure.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-8 for sure but latin1 is expected', (done) ->
+					prepareFs 'charset', 'latin1', 'charset/utf-8-for-sure.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'latin1'
+							is: 'utf-8'
+
+						done()
+
+				it 'should validate if file is utf-8-bom and utf-8-bom is expected', (done) ->
+					prepareFs 'charset', 'utf-8-bom', 'charset/utf-8-bom.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-8-bom but utf-8 is expected', (done) ->
+					prepareFs 'charset', 'utf-8', 'charset/utf-8-bom.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'utf-8'
+							is: 'utf-8-bom'
+
+						done()
+
+				it 'should validate if file is utf-16be and utf-16be is expected', (done) ->
+					prepareFs 'charset', 'utf-16be', 'charset/utf-16be.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-16be but utf-16le is expected', (done) ->
+					prepareFs 'charset', 'utf-16le', 'charset/utf-16be.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'utf-16le'
+							is: 'utf-16be'
+
+						done()
+
+				it 'should validate if file is utf-16le and utf-16le is expected', (done) ->
+					prepareFs 'charset', 'utf-16le', 'charset/utf-16le.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file is utf-16le but utf-16be is expected', (done) ->
+					prepareFs 'charset', 'utf-16be', 'charset/utf-16le.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.charset.should.deep.equal
+							expected: 'utf-16be'
+							is: 'utf-16le'
+
+						done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'charset/utf-8.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
 			describe 'trim_trailing_whitespace', ->
 				after ->
 					mockFs.restore()
