@@ -262,7 +262,7 @@ describe 'brave-mouse (programmatically)', ->
 				after ->
 					mockFs.restore()
 
-				it 'should validate if file is latin1 and latin1 is expected', (done) ->
+				it.skip 'should validate if file is latin1 and latin1 is expected', (done) ->
 					prepareFs 'charset', 'latin1', 'charset/latin1.txt'
 
 					bmValidate 'file.txt', (err, results) ->
@@ -270,7 +270,7 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
-				it 'should validate if file is latin1 but utf-8 is expected', (done) ->
+				it.skip 'should validate if file is latin1 but utf-8 is expected', (done) ->
 					prepareFs 'charset', 'utf-8', 'charset/latin1.txt'
 
 					bmValidate 'file.txt', (err, results) ->
@@ -366,7 +366,7 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
-				it 'should validate if file is utf-16be and utf-16be is expected', (done) ->
+				it.skip 'should validate if file is utf-16be and utf-16be is expected', (done) ->
 					prepareFs 'charset', 'utf-16be', 'charset/utf-16be.txt'
 
 					bmValidate 'file.txt', (err, results) ->
@@ -374,7 +374,7 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
-				it 'should validate if file is utf-16be but utf-16le is expected', (done) ->
+				it.skip 'should validate if file is utf-16be but utf-16le is expected', (done) ->
 					prepareFs 'charset', 'utf-16le', 'charset/utf-16be.txt'
 
 					bmValidate 'file.txt', (err, results) ->
@@ -384,7 +384,7 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
-				it 'should validate if file is utf-16le and utf-16le is expected', (done) ->
+				it.skip 'should validate if file is utf-16le and utf-16le is expected', (done) ->
 					prepareFs 'charset', 'utf-16le', 'charset/utf-16le.txt'
 
 					bmValidate 'file.txt', (err, results) ->
@@ -392,7 +392,7 @@ describe 'brave-mouse (programmatically)', ->
 
 						done()
 
-				it 'should validate if file is utf-16le but utf-16be is expected', (done) ->
+				it.skip 'should validate if file is utf-16le but utf-16be is expected', (done) ->
 					prepareFs 'charset', 'utf-16be', 'charset/utf-16le.txt'
 
 					bmValidate 'file.txt', (err, results) ->
