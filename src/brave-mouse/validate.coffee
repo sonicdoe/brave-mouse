@@ -3,6 +3,7 @@ fs = require 'fs'
 editorconfig = require 'editorconfig'
 detectIndent = require 'detect-indent'
 detectNewline = require 'detect-newline'
+detectCharset = require 'detect-charset'
 detectTrailingWhitespace = require 'detect-trailing-whitespace'
 
 module.exports = (filePath, callback) ->
@@ -10,8 +11,10 @@ module.exports = (filePath, callback) ->
 	.then (editorconfigProperties) ->
 		results = {}
 
-		fs.readFile filePath, 'utf8', (err, fileContents) ->
+		fs.readFile filePath, (err, rawFileContents) ->
 			return callback err if err
+
+			fileContents = rawFileContents.toString()
 
 			if editorconfigProperties.indent_style or editorconfigProperties.indent_size
 				indentation = detectIndent fileContents
@@ -42,6 +45,17 @@ module.exports = (filePath, callback) ->
 					results.end_of_line =
 						expected: editorconfigProperties.end_of_line
 						is: newline
+
+			if editorconfigProperties.charset
+				charset = detectCharset rawFileContents
+
+				if charset isnt editorconfigProperties.charset and
+				# As ISO-8859-1 is mostly a subset of UTF-8, we treat ISO-8859-1 as
+				# valid if the .editorconfig specifies UTF-8.
+				!(charset is 'latin1' and editorconfigProperties.charset is 'utf-8')
+					results.charset =
+						expected: editorconfigProperties.charset
+						is: charset
 
 			if editorconfigProperties.trim_trailing_whitespace
 				hasTrailingWhitespace = detectTrailingWhitespace fileContents
