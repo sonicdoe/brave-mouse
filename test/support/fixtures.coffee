@@ -2,7 +2,7 @@ fs = require 'fs'
 path = require 'path'
 
 readFixture = (fixture) ->
-	fs.readFileSync "#{__dirname}/../fixtures/#{fixture}", 'utf8'
+	fs.readFileSync "#{__dirname}/../fixtures/#{fixture}"
 
 resolveFixture = (fixture) ->
 	path.resolve "#{__dirname}/../fixtures/#{fixture}"
