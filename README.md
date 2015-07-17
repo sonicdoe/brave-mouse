@@ -73,6 +73,7 @@ brave-mouse currently supports validating the following properties:
 - `end_of_line` (only `lf` and `crlf` are supported)
 - `trim_trailing_whitespace`
 - `insert_final_newline`
+- `max_line_length`
 
 `tab_width` can’t be validated as it only applies to editors.
 
