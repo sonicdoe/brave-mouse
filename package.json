@@ -39,7 +39,7 @@
 		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
 	},
 	"devDependencies": {
-		"chai": "^1.10.0",
+		"chai": "^3.0.0",
 		"coffee-script": "^1.8.0",
 		"grunt": "^0.4.5",
 		"grunt-contrib-clean": "^0.6.0",
