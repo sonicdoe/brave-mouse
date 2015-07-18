@@ -32,7 +32,7 @@
 	"dependencies": {
 		"async": "^1.0.0",
 		"detect-indent": "^3.0.0",
-		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
+		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#v2.0.0",
 		"detect-newline-at-eof": "^0.1.0",
 		"detect-trailing-whitespace": "^0.1.0",
 		"editorconfig": "^0.12.1",
