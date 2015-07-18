@@ -38,8 +38,7 @@
 		"editorconfig": "^0.12.1",
 		"exit": "^0.1.2",
 		"max-line-length": "^1.0.1",
-		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit",
-		"trailing-newline": "^1.0.0"
+		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
 	},
 	"devDependencies": {
 		"chai": "^3.0.0",
