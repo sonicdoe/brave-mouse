@@ -8,7 +8,7 @@ Validate your code against your EditorConfig.
 
 ## Command line interface
 
-Install brave-mousing using:
+Install brave-mouse using:
 
 ```shell
 $ npm install brave-mouse -g
