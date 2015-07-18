@@ -36,7 +36,8 @@
 		"detect-trailing-whitespace": "^0.1.0",
 		"editorconfig": "^0.12.1",
 		"exit": "^0.1.2",
-		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
+		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit",
+		"trailing-newline": "^1.0.0"
 	},
 	"devDependencies": {
 		"chai": "^3.0.0",

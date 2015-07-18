@@ -321,3 +321,51 @@ describe 'brave-mouse (programmatically)', ->
 						results.should.be.true
 
 						done()
+
+			describe 'insert_final_newline', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if file has a final newline but a final newline is not expected', (done) ->
+					prepareFs 'insert_final_newline', false, 'insert_final_newline/newline.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.insert_final_newline.should.deep.equal
+							expected: false
+							is: true
+
+						done()
+
+				it 'should validate if file has a final newline and a final newline is expected', (done) ->
+					prepareFs 'insert_final_newline', true, 'insert_final_newline/newline.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file has no final newline but a final newline is expected', (done) ->
+						prepareFs 'insert_final_newline', true, 'insert_final_newline/none.txt'
+
+						bmValidate 'file.txt', (err, results) ->
+							results.insert_final_newline.should.deep.equal
+								expected: true
+								is: false
+
+							done()
+
+				it 'should validate if file has no final newline and no final newline is expected', (done) ->
+						prepareFs 'insert_final_newline', false, 'insert_final_newline/none.txt'
+
+						bmValidate 'file.txt', (err, results) ->
+							results.should.be.true
+
+							done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'insert_final_newline/none.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
