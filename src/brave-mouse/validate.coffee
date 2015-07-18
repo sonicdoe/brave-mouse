@@ -5,6 +5,7 @@ detectIndent = require 'detect-indent'
 detectNewline = require 'detect-newline'
 detectTrailingWhitespace = require 'detect-trailing-whitespace'
 trailingNewline = require 'trailing-newline'
+maxLineLength = require 'max-line-length'
 
 module.exports = (filePath, callback) ->
 	editorconfig.parse(filePath)
@@ -59,6 +60,14 @@ module.exports = (filePath, callback) ->
 					results.insert_final_newline =
 						expected: editorconfigProperties.insert_final_newline
 						is: hasFinalNewline
+
+			if editorconfigProperties.max_line_length
+				maximumLineLength = maxLineLength fileContents
+
+				if maximumLineLength > editorconfigProperties.max_line_length
+					results.max_line_length =
+						expected: editorconfigProperties.max_line_length
+						is: maximumLineLength
 
 			results = true if Object.keys(results).length is 0
 

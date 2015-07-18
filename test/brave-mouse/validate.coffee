@@ -369,3 +369,41 @@ describe 'brave-mouse (programmatically)', ->
 						results.should.be.true
 
 						done()
+
+			describe 'max_line_length', ->
+				after ->
+					mockFs.restore()
+
+				it 'should validate if all lines in file have less than 80 characters', (done) ->
+					prepareFs 'max_line_length', 80, 'max_line_length/under-80.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if all lines in file have less than or equal to 80 characters', (done) ->
+					prepareFs 'max_line_length', 80, 'max_line_length/80.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
+
+				it 'should validate if file contains lines having more than 80 characters', (done) ->
+						prepareFs 'max_line_length', 80, 'max_line_length/over-80.txt'
+
+						bmValidate 'file.txt', (err, results) ->
+							results.max_line_length.should.deep.equal
+								expected: 80
+								is: 212
+
+							done()
+
+				it 'should not validate if nothing is expected', (done) ->
+					prepareFs null, null, 'max_line_length/80.txt'
+
+					bmValidate 'file.txt', (err, results) ->
+						results.should.be.true
+
+						done()
