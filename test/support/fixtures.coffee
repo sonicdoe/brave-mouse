@@ -21,6 +21,11 @@ global.fixtures =
 	'trim_trailing_whitespace/space.txt': readFixture 'trim_trailing_whitespace/space.txt'
 	'trim_trailing_whitespace/tab.txt': readFixture 'trim_trailing_whitespace/tab.txt'
 	'trim_trailing_whitespace/none.txt': readFixture 'trim_trailing_whitespace/none.txt'
+	'insert_final_newline/none.txt': readFixture 'insert_final_newline/none.txt'
+	'insert_final_newline/newline.txt': readFixture 'insert_final_newline/newline.txt'
+	'max_line_length/under-80.txt': readFixture 'max_line_length/under-80.txt'
+	'max_line_length/80.txt': readFixture 'max_line_length/80.txt'
+	'max_line_length/over-80.txt': readFixture 'max_line_length/over-80.txt'
 
 global.fixtures.cli =
 	'validate-valid-file': resolveFixture 'cli/validate-valid-file'

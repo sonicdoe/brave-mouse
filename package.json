@@ -1,6 +1,6 @@
 {
 	"name": "brave-mouse",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"author": "Jakob Krigovsky <jakob.krigovsky@gmail.com>",
 	"description": "Validate your code against your EditorConfig.",
 	"repository": {
@@ -30,21 +30,23 @@
 		"npm": ">=1.3.7"
 	},
 	"dependencies": {
-		"async": "^0.9.0",
+		"async": "^1.0.0",
 		"detect-indent": "^3.0.0",
-		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#no-newline",
+		"detect-newline": "git+https://github.com/SonicHedgehog/detect-newline.git#v2.0.0",
+		"detect-newline-at-eof": "^0.1.0",
 		"detect-trailing-whitespace": "^0.1.0",
 		"editorconfig": "^0.12.1",
 		"exit": "^0.1.2",
+		"max-line-length": "^1.0.1",
 		"nomnom": "git+https://github.com/SonicHedgehog/nomnom.git#exit"
 	},
 	"devDependencies": {
-		"chai": "^1.10.0",
+		"chai": "^3.0.0",
 		"coffee-script": "^1.8.0",
 		"grunt": "^0.4.5",
 		"grunt-contrib-clean": "^0.6.0",
-		"grunt-contrib-coffee": "^0.12.0",
+		"grunt-contrib-coffee": "^0.13.0",
 		"grunt-mocha-cli": "^1.12.0",
-		"mock-fs": "^2.3.2"
+		"mock-fs": "^3.0.0"
 	}
 }

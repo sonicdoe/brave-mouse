@@ -4,6 +4,8 @@ editorconfig = require 'editorconfig'
 detectIndent = require 'detect-indent'
 detectNewline = require 'detect-newline'
 detectTrailingWhitespace = require 'detect-trailing-whitespace'
+detectNewlineAtEof = require 'detect-newline-at-eof'
+maxLineLength = require 'max-line-length'
 
 module.exports = (filePath, callback) ->
 	editorconfig.parse(filePath)
@@ -50,6 +52,22 @@ module.exports = (filePath, callback) ->
 					results.trim_trailing_whitespace =
 						expected: editorconfigProperties.trim_trailing_whitespace
 						is: !hasTrailingWhitespace
+
+			if editorconfigProperties.hasOwnProperty 'insert_final_newline'
+				hasFinalNewline = !!detectNewlineAtEof fileContents
+
+				if hasFinalNewline isnt editorconfigProperties.insert_final_newline
+					results.insert_final_newline =
+						expected: editorconfigProperties.insert_final_newline
+						is: hasFinalNewline
+
+			if editorconfigProperties.max_line_length
+				maximumLineLength = maxLineLength fileContents
+
+				if maximumLineLength > editorconfigProperties.max_line_length
+					results.max_line_length =
+						expected: editorconfigProperties.max_line_length
+						is: maximumLineLength
 
 			results = true if Object.keys(results).length is 0
 
