@@ -1,6 +1,6 @@
 {
 	"name": "brave-mouse",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"author": "Jakob Krigovsky <jakob.krigovsky@gmail.com>",
 	"description": "Validate your code against your EditorConfig.",
 	"repository": {
